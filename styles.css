@@ -1,7 +1,7 @@
 /*  your css code here. If applicable */
 body {
     font-family: Arial, sans-serif;
-    margin: 40px;
+    padding: 40px;
 }
 
 h1 {
@@ -10,11 +10,15 @@ h1 {
 
 input,
 button {
-    padding: 8px;
+    padding: 8px 12px;
     font-size: 16px;
 }
 
-button,
+#existing {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
 #submit {
     cursor: pointer;
 }
