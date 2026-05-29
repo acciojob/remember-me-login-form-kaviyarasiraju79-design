@@ -1,29 +1,36 @@
 //your JS code here. If required.
 const form = document.getElementById("loginForm");
-const username = document.getElementById("username");
-const password = document.getElementById("password");
+const usernameInput = document.getElementById("username");
+const passwordInput = document.getElementById("password");
 const checkbox = document.getElementById("checkbox");
 const existingBtn = document.getElementById("existing");
 
-// Check saved credentials on page load
-const savedUsername = localStorage.getItem("username");
-const savedPassword = localStorage.getItem("password");
+// Check localStorage on page load
+window.onload = function () {
+    const savedUsername = localStorage.getItem("username");
+    const savedPassword = localStorage.getItem("password");
 
-if (savedUsername && savedPassword) {
-    existingBtn.style.display = "inline-block";
-}
+    if (savedUsername && savedPassword) {
+        existingBtn.style.display = "block";
+    } else {
+        existingBtn.style.display = "none";
+    }
+};
 
 // Form submit
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    alert(`Logged in as ${username.value}`);
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+
+    alert(`Logged in as ${username}`);
 
     if (checkbox.checked) {
-        localStorage.setItem("username", username.value);
-        localStorage.setItem("password", password.value);
+        localStorage.setItem("username", username);
+        localStorage.setItem("password", password);
 
-        existingBtn.style.display = "inline-block";
+        existingBtn.style.display = "block";
     } else {
         localStorage.removeItem("username");
         localStorage.removeItem("password");
@@ -32,11 +39,11 @@ form.addEventListener("submit", function (e) {
     }
 });
 
-// Existing user login
+// Existing user button
 existingBtn.addEventListener("click", function () {
-    const user = localStorage.getItem("username");
+    const savedUsername = localStorage.getItem("username");
 
-    if (user) {
-        alert(`Logged in as ${user}`);
+    if (savedUsername) {
+        alert(`Logged in as ${savedUsername}`);
     }
 });
