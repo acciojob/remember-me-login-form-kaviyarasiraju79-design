@@ -1,1 +1,20 @@
 /*  your css code here. If applicable */
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+input,
+button {
+    padding: 8px;
+    font-size: 16px;
+}
+
+button,
+#submit {
+    cursor: pointer;
+}
